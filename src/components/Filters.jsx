@@ -1,0 +1,65 @@
+import { colorfilter, sizefillter } from "../data";
+
+function Filters({ onColorChange }) {
+
+  return (
+    <section className="max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
+      {/* Price */}
+      <form className="p-5 mb-20 mt-20">
+        <h3 className="font-bold text-2xl text-pink-600 p-2">Price</h3>
+        <div className="m-2">
+          <input
+            type="number"
+            placeholder="$ Minimun"
+            className="rounded-[10px] p-[2.5px] text-[#f1f1f1] bg-[#121212] border-neutral-700 border-solid border-[3px] focus:border-pink-600 focus:outline-none appearance-none focus:appearance-none"
+          />
+        </div>
+        <p className="text-[#f1f1f1] text-center">To</p>
+        <div className="m-2">
+          <input
+            type="number"
+            placeholder="$ Maximun"
+            className="rounded-[10px] p-[2.5px] text-[#f1f1f1] bg-[#121212] border-neutral-700 border-solid border-[3px] focus:border-pink-600 focus:outline-none appearance-none focus:appearance-none"
+          />
+        </div>
+        <div className="w-100 flex justify-center">
+          <button className="border-solid border-[2.5px] border-pink-600 m-2 p-2 w-[80px] text-[#f1f1f1] font-semibold hover:scale-[1.2] hover:text-pink-600 transition-[.2s] rounded-[10px]">
+            Filter
+          </button>
+        </div>
+      </form>
+      {/* Colors */}
+      <div className="w-[250px] mb-20 p-5">
+        <h3 className="font-bold text-2xl text-pink-600 p-2">Colors</h3>
+        <ul className="grid grid-cols-3 justify-around p-2">
+          {colorfilter.map((cf) => (
+            <li key={cf.id}>
+              <div
+                className={`w-[40px] h-[40px] ${cf.colorStyle} hover:scale-[1.2] transition-[.2s] m-2 rounded-full cursor-pointer active:scale-[1]`}
+                title={cf.color}
+                onClick={() => onColorChange(cf.color)}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Sizes */}
+      <div className="p-5 mb-20">
+        <h3 className="font-bold text-2xl text-pink-600 p-2">Sizes</h3>
+        <ul className="grid grid-cols-3 place-items-center">
+          {sizefillter.map((sf) => (
+            <li key={sf.id}>
+              <a href="#">
+                <div className="text-[#F1F1F1] w-[40px] h-[40px] border-solid border-[2.5px] hover:border-pink-600 hover:text-pink-600 hover:scale-[1.2] transition-[.2s] text-center rounded-lg m-2 font-semibold">
+                  {sf.size}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+export default Filters;
