@@ -45,6 +45,16 @@ function Products({ products, selectedColor, selectedSize }) {
                   {p.title}
                 </h3>
               </div>
+              <div className="w-full flex flex-row justify-around m-3 p-3">
+                  <div className="h-full w-[150px] flex items-center justify-center">
+                    <p className="text-[#f1f1f1] font-bold text-2xl">{p.price}</p>
+                  </div>
+                  <button
+                    className="bg-[#3CCF4E] text-[#f1f1f1] w-[150px] h-[50px] rounded-[50px] font-bold text-2xl active:bg-[#57ff6e] active:scale-[0.9] transition-[.01s]"
+                  >
+                    Buy
+                  </button>
+              </div>
             </div>
           </div>
         ))}
