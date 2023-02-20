@@ -88,46 +88,22 @@ export const colorfilter = [
 export const sizefillter = [
   {
     id: 6,
-    size: '1',
+    size: 'Sm',
   },
   {
     id: 7,
-    size: '2',
+    size: 'Md',
   },
   {
     id: 8,
-    size: '3',
+    size: 'Lg',
   },
   {
     id: 9,
-    size: '4',
+    size: 'XL',
   },
   {
     id: 10,
-    size: '5',
-  },
-  {
-    id: 11,
-    size: '80',
-  },
-  {
-    id: 12,
-    size: '85',
-  },
-  {
-    id: 13,
-    size: '90',
-  },
-  {
-    id: 14,
-    size: '95',
-  },
-  {
-    id: 15,
-    size: '100',
-  },
-  {
-    id: 16,
-    size: '105',
-  },
+    size: 'XXL',
+  }
 ]

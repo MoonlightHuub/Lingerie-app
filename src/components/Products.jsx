@@ -1,9 +1,17 @@
 import Addto from "./addto";
 import Buy from "./buy";
 
-function Products({products, selectedColor}) {
+function Products({products, selectedColor, selectedSize}) {
 
-  const filteredProducts = selectedColor ? products.filter((product) => product.color === selectedColor) : products;
+  //operador ternario en cascada
+  const filteredProducts = 
+       selectedColor 
+        ? products.filter((product) => product.color === selectedColor)
+        : selectedSize 
+          ? products.filter((product) => product.size.includes(selectedSize))
+          : selectedColor && selectedSize 
+          ? products.filter((product) => product.color === selectedColor && products.filter((product) => product.size.includes(selectedSize)))
+          : products;
     
   return (
     <section className="text-center w-[100%]">

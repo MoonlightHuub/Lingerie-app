@@ -6,15 +6,21 @@ import { products } from "../data/products";
 function Content() {
 
   const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+
+  function handleSizeChange(size){
+    setSelectedSize(size)
+  }
 
   function handleColorChange(color) {
     setSelectedColor(color)
   }
 
+
   return (
     <section className="flex flex-row">
-        <Filters onColorChange={handleColorChange} />
-        <Products products={products} selectedColor={selectedColor} />
+        <Filters onColorChange={handleColorChange} onSizeChange={handleSizeChange} />
+        <Products products={products} selectedColor={selectedColor} selectedSize={selectedSize} />
     </section>
   )
 }

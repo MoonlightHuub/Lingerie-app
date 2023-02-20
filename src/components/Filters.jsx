@@ -1,7 +1,7 @@
 import { colorfilter, sizefillter } from "../data";
 
-function Filters({ onColorChange }) {
-
+function Filters({ onColorChange, onSizeChange }) {
+  
   return (
     <section className="max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
       {/* Price */}
@@ -49,11 +49,12 @@ function Filters({ onColorChange }) {
         <ul className="grid grid-cols-3 place-items-center">
           {sizefillter.map((sf) => (
             <li key={sf.id}>
-              <a href="#">
-                <div className="text-[#F1F1F1] w-[40px] h-[40px] border-solid border-[2.5px] hover:border-pink-600 hover:text-pink-600 hover:scale-[1.2] transition-[.2s] text-center rounded-lg m-2 font-semibold">
+                <div 
+                  className="text-[#F1F1F1] w-[40px] h-[40px] border-solid border-[2.5px] hover:border-pink-600 hover:text-pink-600 hover:scale-[1.2] transition-[.2s] text-center rounded-lg m-2 font-semibold cursor-pointer active:scale-[1]"
+                  onClick={() => onSizeChange(sf.size)}
+                  >
                   {sf.size}
                 </div>
-              </a>
             </li>
           ))}
         </ul>
