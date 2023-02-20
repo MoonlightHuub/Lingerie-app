@@ -1,6 +1,6 @@
 import { colorfilter, sizefillter } from "../data";
 
-function Filters({ onColorChange, onSizeChange }) {
+function Filters({ onColorChange, onSizeChange, reset }) {
   
   return (
     <section className="max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
@@ -28,6 +28,15 @@ function Filters({ onColorChange, onSizeChange }) {
           </button>
         </div>
       </form>
+      {/* Reset */}
+        <div className="w-full flex justify-center mb-10">
+          <button
+            onClick={() => reset('')}
+            className='text-[#f1f1f1] border-solid border-[2.5px] border-pink-600 p-3 hover:scale-[1.2] hover:text-pink-600 active:scale-1 transition-[.2s] rounded-lg'
+          >
+            Show All
+          </button>
+        </div>
       {/* Colors */}
       <div className="w-[250px] mb-20 p-5">
         <h3 className="font-bold text-2xl text-pink-600 p-2">Colors</h3>

@@ -16,10 +16,15 @@ function Content() {
     setSelectedColor(color)
   }
 
+  function reset(){
+    setSelectedColor('')
+    setSelectedSize('')
+  }
+
 
   return (
     <section className="flex flex-row">
-        <Filters onColorChange={handleColorChange} onSizeChange={handleSizeChange} />
+        <Filters onColorChange={handleColorChange} onSizeChange={handleSizeChange} reset={reset} />
         <Products products={products} selectedColor={selectedColor} selectedSize={selectedSize} />
     </section>
   )
