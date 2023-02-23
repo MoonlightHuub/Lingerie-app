@@ -1,30 +1,29 @@
 import Addto from "./addto";
 import Buy from "./buy";
 
-function Products({ products, selectedColor, selectedSize }) {
-  //operador ternario en cascada
+function Products({ products, selectedColor, selectedSize, minPrice, maxPrice, selectedRange}) {
+  
   const filteredProducts = products.filter((product) => {
-    const hasSelectedColor = !selectedColor || product.color === selectedColor;
-    const hasSelectedSize =
-      !selectedSize || product.size.includes(selectedSize);
-    return hasSelectedColor && hasSelectedSize;
+    const hasSelectedColor = !selectedColor || product.color === selectedColor
+    const hasSelectedSize = !selectedSize || product.size.includes(selectedSize)
+    const hasSelectedRangePrice = !selectedRange || product.price >= minPrice && product.price <= maxPrice
+    return hasSelectedColor && hasSelectedSize && hasSelectedRangePrice
   });
 
   return (
     <section className="text-center w-[100%]">
       <h2
-        className="text-4xl text-pink-600 font-bold
-       m-3"
+        className="text-4xl text-pink-600 font-bold m-3"
       >
         Find that you looking for!
       </h2>
-      <article className="grid grid-cols-3 place-content-center">
+      <article className="grid grid-cols-3 place-content-center justify-evenly">
         {filteredProducts.map((p, i) => (
           <div
             className="w-[350px] h-[450px] shadow-lg bg-[#333] bg-opacity-50 p-3 m-3 rounded-[15px] transition-[.2s]"
-            key={p.id}
+            key={i}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full" key={i}>
               <img
                 src={p.img}
                 alt="Produc"
@@ -46,14 +45,10 @@ function Products({ products, selectedColor, selectedSize }) {
                 </h3>
               </div>
               <div className="w-full flex flex-row justify-around m-3 p-3">
-                  <div className="h-full w-[150px] flex items-center justify-center">
-                    <p className="text-[#f1f1f1] font-bold text-2xl">{p.price}</p>
-                  </div>
-                  <button
-                    className="bg-[#3CCF4E] text-[#f1f1f1] w-[150px] h-[50px] rounded-[50px] font-bold text-2xl active:bg-[#57ff6e] active:scale-[0.9] transition-[.01s]"
-                  >
-                    Buy
-                  </button>
+                <div className="h-full w-[150px] flex items-center justify-center">
+                  <p className="text-[#f1f1f1] font-semibold text-2xl  p-2">$ {p.price}</p>
+                </div>
+                <Buy />
               </div>
             </div>
           </div>
