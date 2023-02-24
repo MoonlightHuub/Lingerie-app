@@ -10,6 +10,11 @@ function Content() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
 
+
+  {/* Cart */}
+
+ 
+
   {/* Size */}
 
   function handleSizeChange(size){

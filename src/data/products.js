@@ -37,7 +37,6 @@ export const products = [
     img: red1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Red',
     size: ['Md', 'Lg', 'XL'],
     price: 1500
@@ -47,7 +46,6 @@ export const products = [
     img: red2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Red',
     size: ['Sm', 'Md', 'XL'],
     price: 2500
@@ -57,7 +55,6 @@ export const products = [
     img: red3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     style: 'w-[150px] h-[200px]',
     color: 'Red',
     size: ['XL', 'XXL'],
@@ -68,7 +65,6 @@ export const products = [
     img: red4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Red',
     size: ['Sm', 'Md', 'Lg'],
     price: 1800
@@ -78,7 +74,6 @@ export const products = [
     img: red5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Red',
     size: ['Lg', 'XXL'],
     price: 3200
@@ -88,7 +83,6 @@ export const products = [
     img: blue1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Blue',
     size: ['Md', 'Lg', 'XL'],
     price: 800
@@ -98,7 +92,6 @@ export const products = [
     img: blue2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Blue',
     size: ['Sm', 'Md', 'XL'],
     price: 950
@@ -108,7 +101,6 @@ export const products = [
     img: blue3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Blue',
     size: ['XL', 'XXL'],
     price: 2800
@@ -118,7 +110,6 @@ export const products = [
     img: blue4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Blue',
     size: ['Sm', 'Md', 'Lg'],
     price: 7000
@@ -128,7 +119,6 @@ export const products = [
     img: blue5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Blue',
     size: ['Lg', 'XXL'],
     price: 6200
@@ -138,7 +128,6 @@ export const products = [
     img: white1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'White',
     size: ['Md', 'Lg', 'XL'],
     price: 4000
@@ -148,7 +137,6 @@ export const products = [
     img: white2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'White',
     size: ['Sm', 'Md', 'XL'],
     price: 4500
@@ -158,7 +146,6 @@ export const products = [
     img: white3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'White',
     size: ['XL', 'XXL'],
     price: 10000
@@ -168,7 +155,6 @@ export const products = [
     img: white4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'White',
     size: ['Sm', 'Md', 'Lg'],
     price: 7800
@@ -178,7 +164,6 @@ export const products = [
     img: white5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'White',
     size: ['Lg', 'XXL'],
     price: 7500
@@ -188,7 +173,6 @@ export const products = [
     img: pink1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Pink',
     size: ['Md', 'Lg', 'XL'],
     price: 1400
@@ -198,7 +182,6 @@ export const products = [
     img: pink2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Pink',
     size: ['Sm', 'Md', 'XL'],
     price: 3100
@@ -208,7 +191,6 @@ export const products = [
     img: pink3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Pink',
     size: ['XL', 'XXL'],
     price: 450
@@ -218,7 +200,6 @@ export const products = [
     img: pink4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Pink',
     size: ['Sm', 'Md', 'Lg'],
     pric: 5000
@@ -228,7 +209,6 @@ export const products = [
     img: pink5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Pink',
     size: ['Lg', 'XXL'],
     price: 4000
@@ -238,7 +218,6 @@ export const products = [
     img: black1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Black',
     size: ['Md', 'Lg', 'XL'],
     price: 10000
@@ -248,7 +227,6 @@ export const products = [
     img: black2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Black',
     size: ['Sm', 'Md', 'XL'],
     price: 15000
@@ -258,7 +236,6 @@ export const products = [
     img: black3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Black',
     size: ['XL', 'XXL'],
     price: 6000
@@ -268,7 +245,6 @@ export const products = [
     img: black4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Black',
     size: ['Sm', 'Md', 'Lg'],
     price: 4000
@@ -278,7 +254,6 @@ export const products = [
     img: black5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Black',
     size: ['Lg', 'XXL'],
     price: 8000
@@ -288,7 +263,6 @@ export const products = [
     img: green1,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Green',
     size: ['Md', 'Lg', 'XL'],
     price: 7000
@@ -298,7 +272,6 @@ export const products = [
     img: green2,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Green',
     size: ['Sm', 'Md', 'XL'],
     price: 9000
@@ -308,7 +281,6 @@ export const products = [
     img: green3,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Green',
     size: ['XL', 'XXL'],
     price: 2700
@@ -318,7 +290,6 @@ export const products = [
     img: green4,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Green',
     size: ['Sm', 'Md', 'Lg'],
     price: 1800
@@ -328,7 +299,6 @@ export const products = [
     img: green5,
     price: "$",
     title: "An Amazing Title",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis animi vitae pariatur corporis doloribus quam dignissimos iure perferendis.",
     color: 'Green',
     size: ['Lg', 'XXL'],
     price: 3000

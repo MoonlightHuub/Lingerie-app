@@ -5,6 +5,7 @@ import Products from './Products'
 import Button from './Button'
 import Benefits from './Benefits'
 import Content from './Content'
+import Footer from './Footer'
 
 export{
     Header, 
@@ -13,5 +14,6 @@ export{
     Filters,
     Button,
     Benefits,
-    Content
+    Content,
+    Footer
 }

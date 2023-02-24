@@ -1,4 +1,4 @@
-import {Header, Slide, Benefits, Content} from './components/index'
+import {Header, Slide, Benefits, Content, Footer} from './components/index'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Slide />
       <Benefits />
       <Content />
-      /* footer */
+      <Footer />
     </>
   )
 }

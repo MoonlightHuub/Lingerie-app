@@ -33,7 +33,10 @@ import green2 from './green-2.jpg'
 import green3 from './green-3.jpg'
 import green4 from './green-4.jpg'
 import green5 from './green-5.jpg'
+import github from './github.png'
+import glassdoor from './glassdoor.png'
+import linkedin from './linkedin.png'
 
 export {
-    logo, slider1, slider2, slider3, slider4, blue1, blue2, blue3, blue4, blue5, red1, red2, red3, red4, red5, pink1, pink2, pink3, pink4, pink5, white1, white2, white3, white4, white5, black1, black2, black3, black4, black5, green1, green2, green3, green4, green5 
+    logo, slider1, slider2, slider3, slider4, blue1, blue2, blue3, blue4, blue5, red1, red2, red3, red4, red5, pink1, pink2, pink3, pink4, pink5, white1, white2, white3, white4, white5, black1, black2, black3, black4, black5, green1, green2, green3, green4, green5, github, glassdoor, linkedin
 }

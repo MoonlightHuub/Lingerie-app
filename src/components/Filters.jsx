@@ -1,6 +1,6 @@
 import { colorfilter, sizefillter } from "../data";
 
-function Filters({ onColorChange, onSizeChange, onPriceChangeMax, onPriceChangeMin, reset, handleFilterButtonClick, minPrice, maxPrice }) {
+function Filters({ onColorChange, onSizeChange, onPriceChangeMax, onPriceChangeMin, reset, minPrice, maxPrice }) {
   
   return (
     <section className="max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
@@ -26,14 +26,7 @@ function Filters({ onColorChange, onSizeChange, onPriceChangeMax, onPriceChangeM
             className="rounded-[10px] p-[2.5px] text-[#f1f1f1] bg-[#121212] border-neutral-700 border-solid border-[3px] focus:border-pink-600 focus:outline-none appearance-none focus:appearance-none"
           />
         </div>
-        <div className="w-100 flex justify-center">
-          <button 
-            className="border-solid border-[2.5px] border-pink-600 m-2 p-2 w-[80px] text-[#f1f1f1] font-semibold hover:scale-[1.2] hover:text-pink-600 transition-[.2s] rounded-[10px]"
-            onClick={() => handleFilterButtonClick}
-          >
-            Filter
-          </button>
-        </div>
+        
       </div>
       {/* Reset */}
         <div className="w-full flex justify-center mb-10">
