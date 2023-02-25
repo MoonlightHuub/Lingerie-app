@@ -2,27 +2,18 @@ import { logo } from "../assets";
 import { navBar } from "../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "./context/Context";
 import "../index.css";
 function Header() {
-  const { cart } = useContext(GlobalContext);
+  const { cart, price, handleChange, handlePrice, handleRemove } = useContext(GlobalContext);
 
   const [toggleFav, setToggleFav] = useState(false);
   const [toggleCart, settoggleCart] = useState(false);
-  const [count, setCount] = useState(1);
 
-  if (count < 1){
-    setCount(1)
-  }
-
-  const handleCountAd = () => {
-    setCount( count + 1)
-  }
-
-  const handleCountDel = () => {
-    setCount( count - 1 )
-  }
+  useEffect(() => {
+    handlePrice()
+  })
 
   return (
     <header className="flex flex-row bg-[#121212] shadow-slate-900 fixed w-[100%] top-0 border-solid border-b-[2.5px] border-pink-600 z-10">
@@ -84,7 +75,7 @@ function Header() {
             <h3>Your Cart</h3>
           </div>
           {cart.map((p, i) => (
-            <div key={p.id} className="w-full flex flex-row m-3 p-3 bg-[#333]">
+            <div key={p.id} className="w-full flex flex-row m-3 p-3 bg-[#333] justify-between">
               <div key={i} className="flex flex-row mr-3">
                 <img src={p.img} alt="pro" className="w-[60px] h-[60px] mr-3" />
                 <h3>
@@ -96,25 +87,34 @@ function Header() {
               </div>
               <div className="ml-3 flex flex-row items-center">
                 <button
-                  onClick={handleCountDel}
+                  onClick={() => handleChange(p, -1)}
                 >
                   -
                 </button>
                 <p className="p-3">
-                  {count}
+                  {p.amount}
                 </p>
                 <button
-                  onClick={handleCountAd}
+                  onClick={() => handleChange(p, 1)}
                 >
                   +
+                </button>
+              </div>
+              <div>
+                <button
+                  onClick={() => handleRemove(p.id)}
+                >
+                  Remove
                 </button>
               </div>
             </div>
           ))}
           <div className="static bottom-0 left-0 bg-[#121212] bg-opacity-20 w-full p-3 flex flex-row justify-between text-[20px]">
             <p>Total: </p>
-            <p>$ 12345</p>
-            <button>Buy All</button>
+            <p>$ {price}</p>
+            <button>
+              Buy All
+            </button>
           </div>
         </div>
       </div>

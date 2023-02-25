@@ -35,7 +35,7 @@ export const products = [
   {
     id: 0,
     img: red1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Red',
     size: ['Md', 'Lg', 'XL'],
@@ -44,7 +44,7 @@ export const products = [
   {
     id: 1,
     img: red2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Red',
     size: ['Sm', 'Md', 'XL'],
@@ -53,8 +53,8 @@ export const products = [
   {
     id: 2,
     img: red3,
-    price: "$",
-    title: "An Amazing Title",
+    amount: 1,
+    title:"an Amazing Title",
     style: 'w-[150px] h-[200px]',
     color: 'Red',
     size: ['XL', 'XXL'],
@@ -63,7 +63,7 @@ export const products = [
   {
     id: 3,
     img: red4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Red',
     size: ['Sm', 'Md', 'Lg'],
@@ -72,7 +72,7 @@ export const products = [
   {
     id: 4,
     img: red5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Red',
     size: ['Lg', 'XXL'],
@@ -81,7 +81,7 @@ export const products = [
   {
     id: 5,
     img: blue1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Blue',
     size: ['Md', 'Lg', 'XL'],
@@ -90,7 +90,7 @@ export const products = [
   {
     id: 6,
     img: blue2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Blue',
     size: ['Sm', 'Md', 'XL'],
@@ -99,7 +99,7 @@ export const products = [
   {
     id: 7,
     img: blue3,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Blue',
     size: ['XL', 'XXL'],
@@ -108,7 +108,7 @@ export const products = [
   {
     id: 8,
     img: blue4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Blue',
     size: ['Sm', 'Md', 'Lg'],
@@ -117,7 +117,7 @@ export const products = [
   {
     id: 9,
     img: blue5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Blue',
     size: ['Lg', 'XXL'],
@@ -126,7 +126,7 @@ export const products = [
   {
     id: 10,
     img: white1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'White',
     size: ['Md', 'Lg', 'XL'],
@@ -135,7 +135,7 @@ export const products = [
   {
     id: 11,
     img: white2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'White',
     size: ['Sm', 'Md', 'XL'],
@@ -144,7 +144,7 @@ export const products = [
   {
     id: 12,
     img: white3,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'White',
     size: ['XL', 'XXL'],
@@ -153,7 +153,7 @@ export const products = [
   {
     id: 13,
     img: white4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'White',
     size: ['Sm', 'Md', 'Lg'],
@@ -162,7 +162,7 @@ export const products = [
   {
     id: 14,
     img: white5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'White',
     size: ['Lg', 'XXL'],
@@ -171,7 +171,7 @@ export const products = [
   {
     id: 15,
     img: pink1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Pink',
     size: ['Md', 'Lg', 'XL'],
@@ -180,7 +180,7 @@ export const products = [
   {
     id: 16,
     img: pink2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Pink',
     size: ['Sm', 'Md', 'XL'],
@@ -189,7 +189,7 @@ export const products = [
   {
     id: 17,
     img: pink3,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Pink',
     size: ['XL', 'XXL'],
@@ -198,7 +198,7 @@ export const products = [
   {
     id: 18,
     img: pink4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Pink',
     size: ['Sm', 'Md', 'Lg'],
@@ -207,7 +207,7 @@ export const products = [
   {
     id: 19,
     img: pink5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Pink',
     size: ['Lg', 'XXL'],
@@ -216,7 +216,7 @@ export const products = [
   {
     id: 20,
     img: black1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Black',
     size: ['Md', 'Lg', 'XL'],
@@ -225,7 +225,7 @@ export const products = [
   {
     id: 21,
     img: black2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Black',
     size: ['Sm', 'Md', 'XL'],
@@ -234,7 +234,7 @@ export const products = [
   {
     id: 22,
     img: black3,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Black',
     size: ['XL', 'XXL'],
@@ -243,7 +243,7 @@ export const products = [
   {
     id: 23,
     img: black4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Black',
     size: ['Sm', 'Md', 'Lg'],
@@ -252,7 +252,7 @@ export const products = [
   {
     id: 24,
     img: black5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Black',
     size: ['Lg', 'XXL'],
@@ -261,7 +261,7 @@ export const products = [
   {
     id: 25,
     img: green1,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Green',
     size: ['Md', 'Lg', 'XL'],
@@ -270,7 +270,7 @@ export const products = [
   {
     id: 26,
     img: green2,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Green',
     size: ['Sm', 'Md', 'XL'],
@@ -279,7 +279,7 @@ export const products = [
   {
     id: 27,
     img: green3,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Green',
     size: ['XL', 'XXL'],
@@ -288,7 +288,7 @@ export const products = [
   {
     id: 28,
     img: green4,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Green',
     size: ['Sm', 'Md', 'Lg'],
@@ -297,7 +297,7 @@ export const products = [
   {
     id: 29,
     img: green5,
-    price: "$",
+    amount: 1,
     title: "An Amazing Title",
     color: 'Green',
     size: ['Lg', 'XXL'],
