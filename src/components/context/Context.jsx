@@ -5,11 +5,17 @@ export const GlobalContext = createContext();
 export function ContextProvider(props) {
 
   const [cart, setCart] = useState([]);
+  const [fav, setFav] = useState([])
   const [price, setPrice] = useState(0)
 
   const handleClickCart = (products) => {
     if (cart.indexOf(products) !== -1) return; 
     setCart([...cart, products])
+  }
+
+  const handleClickfav = (products) => {
+    if (fav.indexOf(products) !== -1) return; 
+    setFav([...fav, products])
   }
 
   const handleChange = (item, d) => {
@@ -28,9 +34,16 @@ export function ContextProvider(props) {
     setPrice(ans)
   }
 
-  const handleRemove = (id) => {
+  const handleRemoveCart = (id) => {
     const arr = cart.filter((item) => item.id !== id)
     setCart(arr)
+    handlePrice()
+  }
+
+
+  const handleRemoveFav = (id) => {
+    const arr = fav.filter((item) => item.id !== id)
+    setFav(arr)
     handlePrice()
   }
 
@@ -40,8 +53,11 @@ export function ContextProvider(props) {
         handleClickCart,
         handleChange,
         handlePrice,
-        handleRemove,
+        handleRemoveCart,
+        handleRemoveFav,
+        handleClickfav,
         cart,
+        fav,
         price
       }}
     >

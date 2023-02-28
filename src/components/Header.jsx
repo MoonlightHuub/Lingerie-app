@@ -1,31 +1,50 @@
-import { logo } from "../assets";
 import { navBar } from "../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faHeart,
+  faMinus,
+  faPlus,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "./context/Context";
 import "../index.css";
 function Header() {
-  const { cart, price, handleChange, handlePrice, handleRemove } = useContext(GlobalContext);
+  const {
+    cart,
+    price,
+    fav,
+    handleChange,
+    handlePrice,
+    handleRemoveCart,
+    handleRemoveFav,
+  } = useContext(GlobalContext);
 
   const [toggleFav, setToggleFav] = useState(false);
   const [toggleCart, settoggleCart] = useState(false);
 
   useEffect(() => {
-    handlePrice()
-  })
+    handlePrice();
+  });
 
   return (
-    <header className="flex flex-row bg-[#121212] shadow-slate-900 fixed w-[100%] top-0 border-solid border-b-[2.5px] border-pink-600 z-10">
-      <div className="w-[30%]">
-        <img
-          src={logo}
-          alt="logo"
-          title="Lingerie"
-          className="w-[64px] m-3 ml-5 rounded-[20px]"
-        />
+    <header className="flex flex-row bg-[#121212] shadow-slate-900 fixed w-[100vw] max-w-screen-sm sm:max-w-[100%] top-0 left-0 border-solid border-b-[2.5px] border-pink-600 z-10 transition-[.2s] justify-between h-[110px]">
+      <div className="hidden sm:flex justify-center items-center p-5 m-5">
+        <h1 className="text-[#db2777] text-2xl font-serif cursor-pointer">
+          Lingerie Shop
+        </h1>
       </div>
-      <ul className="flex flex-row w-[40%] items-center justify-center">
+      <div className="sm:hidden flex w-[64px] ml-6">
+        <button>
+          <FontAwesomeIcon
+            icon={faBars}
+            className="w-[40px] h-[40px] text-[#f1f1f1]"
+          />
+        </button>
+      </div>
+      <ul className="hidden sm:flex flex-row items-center justify-center">
         {navBar.map((short, index) => (
           <li
             key={short.id}
@@ -37,7 +56,7 @@ function Header() {
           </li>
         ))}
       </ul>
-      <div className="w-[30%] flex flex-row justify-end items-center p-5">
+      <div className=" flex flex-row justify-end items-center p-5">
         <button
           onClick={() => {
             settoggleCart((prev) => !prev);
@@ -46,7 +65,7 @@ function Header() {
         >
           <FontAwesomeIcon
             icon={faCartShopping}
-            className="text-white text-3xl hover:text-pink-600 transition-[.2s] cursor-pointer pr-8"
+            className="text-white text-3xl active:text-[#db2777] sm:hover:text-pink-600 transition-[.2s] cursor-pointer pr-8"
             title="Cart"
           />
         </button>
@@ -59,25 +78,39 @@ function Header() {
         >
           <FontAwesomeIcon
             icon={faHeart}
-            className="text-white text-3xl hover:text-pink-600 transition-[.2s] cursor-pointer pr-5"
+            className="text-white text-3xl active:text-[#db2777] sm:hover:text-pink-600 transition-[.2s] cursor-pointer pr-5"
             title="Favourites"
           />
         </button>
       </div>
 
+      {/* Cart Menu */}
+
       <div
         className={`${
           toggleCart ? "flex" : "hidden"
-        } absolute top-20 right-20 mx-4 my-2 max-w-[500px] w-[500px] max-h-[700px] h-[700px] bg-[#222] text-[#f1f1f1] transition-[.2s] rounded-lg p-3 div_shadow overflow-y-scroll div_scroll`}
+        } absolute sm:top-20 sm:right-20 sm:mx-4 sm:my-2 p-3 sm:w-[600px] sm:h-[800px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen`}
       >
-        <div className="w-full h-full flex flex-col">
-          <div className="w-full text-center">
-            <h3>Your Cart</h3>
+        <div className="w-full h-full flex flex-col items-center">
+          <div className="w-full flex justify-end">
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="text-4xl m-3"
+              onClick={() => settoggleCart(false)}
+            />
           </div>
+          <h3 className="text-2xl text-[#db2777] font-bold p-3">Your Cart</h3>
           {cart.map((p, i) => (
-            <div key={p.id} className="w-full flex flex-row m-3 p-3 bg-[#333] justify-between">
-              <div key={i} className="flex flex-row mr-3">
-                <img src={p.img} alt="pro" className="w-[60px] h-[60px] mr-3" />
+            <div
+              key={p.id}
+              className="w-[90%] flex flex-row m-2 p-3 bg-[#333] justify-evenly items-center rounded-[15px]"
+            >
+              <div key={i} className="flex flex-row mr-3 justify-between">
+                <img
+                  src={p.img}
+                  alt="pro"
+                  className="w-[60px] h-[60px] mr-5 rounded-[10px]"
+                />
                 <h3>
                   {p.title} {p.id}
                 </h3>
@@ -85,47 +118,84 @@ function Header() {
               <div className="">
                 <p>$ {p.price}</p>
               </div>
-              <div className="ml-3 flex flex-row items-center">
-                <button
-                  onClick={() => handleChange(p, -1)}
-                >
-                  -
+              <div className="ml-3 flex flex-row items-center bg-opacity-50 bg-[#121212] rounded-[10px] p-3 h-[40px]">
+                <button onClick={() => handleChange(p, -1)}>
+                  <FontAwesomeIcon icon={faMinus} />
                 </button>
-                <p className="p-3">
-                  {p.amount}
-                </p>
-                <button
-                  onClick={() => handleChange(p, 1)}
-                >
-                  +
+                <p className="p-3 text-[18px] font-semibold">{p.amount}</p>
+                <button onClick={() => handleChange(p, 1)}>
+                  <FontAwesomeIcon icon={faPlus} />
                 </button>
               </div>
-              <div>
+              <div className="flex items-center">
                 <button
-                  onClick={() => handleRemove(p.id)}
+                  onClick={() => handleRemoveCart(p.id)}
+                  className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s]"
                 >
                   Remove
                 </button>
               </div>
             </div>
           ))}
-          <div className="static bottom-0 left-0 bg-[#121212] bg-opacity-20 w-full p-3 flex flex-row justify-between text-[20px]">
+
+          <div className="static bottom-0 left-0 bg-[#121212] bg-opacity-20 w-[90%] p-3 m-3 flex flex-row justify-between text-[20px]">
             <p>Total: </p>
             <p>$ {price}</p>
-            <button>
+            <button className="cursor-pointer bg-[#3CCF4E] py-2 px-3 rounded-[50px] font-semibold">
               Buy All
             </button>
           </div>
         </div>
       </div>
 
+      {/* Favourites menu */}
+
       <div
         className={`${
           toggleFav ? "flex" : "hidden"
-        } absolute top-20 right-0 mx-4 my-2 min-w-[500px] min-h-[700px] bg-[#222] text-[#f1f1f1] transition-[.2s] rounded-lg p-3 div_shadow`}
+        } absolute sm:top-20 sm:right-0 sm:mx-4 sm:my-2 sm:w-[600px] sm:h-[800px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen`}
       >
-        <div className="w-full text-center">
-          <h3>Your Favourites</h3>
+        <div className="flex flex-col px-3 w-full py-4">
+          <div className="w-full flex justify-end">
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="text-4xl m-3"
+              onClick={() => setToggleFav(false)}
+            />
+          </div>
+          <div className="w-full text-center">
+            <h3 className="text-2xl text-[#db2777] font-bold">
+              Your Favourites
+            </h3>
+          </div>
+          {fav.map((p, i) => (
+            <div
+              key={i}
+              className="flex flex-row justify-between items-center w-full m-3 bg-[#333] p-3 rounded-[15px] transition-[.2s]"
+            >
+              <div>
+                <img
+                  src={p.img}
+                  alt="product"
+                  className="w-[60px] h-[60px] rounded-[10px]"
+                />
+              </div>
+              <div className="m-3">
+                <h3>
+                  {p.title} {p.id}
+                </h3>
+              </div>
+              <div>
+                <button
+                  className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s]"
+                  onClick={() => handleRemoveFav(p.id)}
+                >
+                  Remove
+                </button>
+              </div>
+              <div className="h-[10px]" />
+            </div>
+          ))}
         </div>
       </div>
     </header>

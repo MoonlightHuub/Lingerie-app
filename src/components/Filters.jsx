@@ -3,7 +3,7 @@ import { colorfilter, sizefillter } from "../data";
 function Filters({ onColorChange, onSizeChange, onPriceChangeMax, onPriceChangeMin, reset, minPrice, maxPrice }) {
   
   return (
-    <section className="max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
+    <section className="hidden sm:flex max-w-[250px] bg-[#121212] border-solid border-r-[2.5px] border-pink-600">
       {/* Price */}
       <div className="p-5 mb-20 mt-20">
         <h3 className="font-bold text-2xl text-pink-600 p-2">Price</h3>

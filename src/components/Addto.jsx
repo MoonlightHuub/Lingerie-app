@@ -5,13 +5,14 @@ import { GlobalContext } from "./context/Context";
 
 function Addto({ product }) {
 
-  const {handleClickCart} = useContext(GlobalContext)
+  const {handleClickCart, handleClickfav} = useContext(GlobalContext)
 
   return (
     <div className="flex flex-row justify-around text-3xl">
       <span>
         <button
           className="h-[32px] w-[32px]"
+          onClick={() => handleClickfav(product)}
         >
           <FontAwesomeIcon
             icon={faHeart}

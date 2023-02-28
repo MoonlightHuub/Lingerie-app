@@ -10,11 +10,6 @@ function Content() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
 
-
-  {/* Cart */}
-
- 
-
   {/* Size */}
 
   function handleSizeChange(size){
@@ -55,7 +50,7 @@ function Content() {
   }
 
   return (
-    <section className="flex flex-row">
+    <section className="flex sm:flex-row flex-col">
         <Filters 
           onColorChange={handleColorChange} 
           onSizeChange={handleSizeChange} 
