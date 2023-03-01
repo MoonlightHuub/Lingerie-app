@@ -16,14 +16,14 @@ function Addto({ product }) {
         >
           <FontAwesomeIcon
             icon={faHeart}
-            className="text-[#f1f1f1] hover:scale-[1.2] hover:text-[#db2777] active:scale-[1] transition-[.2s]"
+            className="text-[#f1f1f1] sm:hover:scale-[1.2] sm:hover:text-[#db2777] sm:active:scale-[1] transition-[.2s] active:scale-[0.9] active:text-[#db2777]"
             title="Add to your favorites list"
           />
         </button>
       </span>
-      <span className="text-[#f1f1f1] hover:scale-[1.2] hover:text-[#db2777] active:scale-[1] transition-[.2s]">
+      <span className="text-[#f1f1f1] sm:hover:scale-[1.2] sm:hover:text-[#db2777] sm:active:scale-[1] transition-[.2s]">
         <button 
-          className="w-[32px] h-[32px]"
+          className="w-[32px] h-[32px] active:scale-[0.9] active:text-[#db2777]"
           onClick={() => handleClickCart(product)}
         >
           <FontAwesomeIcon icon={faCartPlus} title="Add to Cart" />

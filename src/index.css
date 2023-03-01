@@ -78,3 +78,17 @@ body::-webkit-scrollbar-thumb{
 		transform: translateY(0);
 	}
 }
+
+.post_anim{
+	animation: myAnimPost .2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimPost {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}

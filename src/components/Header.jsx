@@ -219,7 +219,7 @@ function Header() {
           <div className="w-full flex justify-end">
             <FontAwesomeIcon
               icon={faXmark}
-              className="text-4xl m-3"
+              className="text-4xl m-3 cursor-pointer"
               onClick={() => setToggleFav(false)}
             />
           </div>
