@@ -3,19 +3,40 @@ import { createContext, useState } from "react";
 export const GlobalContext = createContext();
 
 export function ContextProvider(props) {
-
   const [cart, setCart] = useState([]);
-  const [fav, setFav] = useState([])
-  const [price, setPrice] = useState(0)
+  const [fav, setFav] = useState([]);
+  const [price, setPrice] = useState(0);
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(Infinity);
+  const [post, setPost] = useState([]);
 
-  const handleClickCart = (products) => {
-    if (cart.indexOf(products) !== -1) return; 
-    setCart([...cart, products])
+  {
+    /* Add to Logic */
   }
 
+  const handleClickCart = (products) => {
+    if (cart.indexOf(products) !== -1) return;
+    setCart([...cart, products]);
+  };
+
   const handleClickfav = (products) => {
-    if (fav.indexOf(products) !== -1) return; 
-    setFav([...fav, products])
+    if (fav.indexOf(products) !== -1) return;
+    setFav([...fav, products]);
+  };
+
+  {
+    /* Show Post */
+  }
+
+  const handleClickPost = (products) => {
+    if (post.indexOf(products) !== -1) return;
+    setPost([...post, products]);
+  };
+
+  {
+    /* Change Amount */
   }
 
   const handleChange = (item, d) => {
@@ -27,24 +48,79 @@ export function ContextProvider(props) {
     setCart([...arr]);
   };
 
-  const handlePrice = () => {
-    let ans = 0
+  {
+    /* Price Logic */
+  }
 
-    cart.map((item) => (ans += item.amount * item.price))
-    setPrice(ans)
+  const handlePrice = () => {
+    let ans = 0;
+
+    cart.map((item) => (ans += item.amount * item.price));
+    setPrice(ans);
+  };
+
+  {
+    /* Remove Logic */
   }
 
   const handleRemoveCart = (id) => {
-    const arr = cart.filter((item) => item.id !== id)
-    setCart(arr)
-    handlePrice()
-  }
-
+    const arr = cart.filter((item) => item.id !== id);
+    setCart(arr);
+    handlePrice();
+  };
 
   const handleRemoveFav = (id) => {
-    const arr = fav.filter((item) => item.id !== id)
-    setFav(arr)
-    handlePrice()
+    const arr = fav.filter((item) => item.id !== id);
+    setFav(arr);
+    handlePrice();
+  };
+
+  {
+    /* Size */
+  }
+
+  function handleSizeChange(size) {
+    setSelectedSize(size);
+  }
+
+  {
+    /* Color */
+  }
+
+  function handleColorChange(color) {
+    setSelectedColor(color);
+  }
+
+  {
+    /* Range Price */
+  }
+
+  function handleMinPriceChange(event) {
+    setMinPrice(event.target.value);
+  }
+
+  function handleMaxPriceChange(event) {
+    setMaxPrice(event.target.value);
+  }
+
+  function handleFilterButtonClick() {
+    filterByPriceRange(minPrice, maxPrice);
+  }
+
+  const selectedRange = {
+    minPrice,
+    maxPrice,
+  };
+
+  {
+    /* Reset List Whitout filter */
+  }
+
+  function reset() {
+    setSelectedColor("");
+    setSelectedSize("");
+    setMaxPrice(Infinity);
+    setMinPrice(0);
   }
 
   return (
@@ -56,9 +132,23 @@ export function ContextProvider(props) {
         handleRemoveCart,
         handleRemoveFav,
         handleClickfav,
+        handleColorChange,
+        handleFilterButtonClick,
+        handleMaxPriceChange,
+        handleMinPriceChange,
+        handleSizeChange,
+        reset,
+        minPrice,
+        maxPrice,
+        selectedColor,
+        selectedSize,
+        selectedRange,
         cart,
         fav,
-        price
+        price,
+        handleClickPost,
+        post, 
+        setPost
       }}
     >
       {props.children}

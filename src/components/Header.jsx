@@ -1,4 +1,5 @@
 import { navBar } from "../data";
+import Filters from "./Filters";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -20,17 +21,71 @@ function Header() {
     handlePrice,
     handleRemoveCart,
     handleRemoveFav,
+    handleColorChange,
+    handleFilterButtonClick,
+    handleMaxPriceChange,
+    handleMinPriceChange,
+    handleSizeChange,
+    reset,
+    minPrice,
+    maxPrice,
   } = useContext(GlobalContext);
 
   const [toggleFav, setToggleFav] = useState(false);
   const [toggleCart, settoggleCart] = useState(false);
+  const [menuFilter, setMenuFilter] = useState(false);
 
   useEffect(() => {
     handlePrice();
   });
 
+  {/* Size Indicator */}
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <header className="flex flex-row bg-[#121212] shadow-slate-900 fixed w-[100vw] max-w-screen-sm sm:max-w-[100%] top-0 left-0 border-solid border-b-[2.5px] border-pink-600 z-10 transition-[.2s] justify-between h-[110px]">
+      {/* Toggle Menu Mobile */}
+      <div
+        className={`${
+          menuFilter ? "absolute h-screen w-screen z-50" : "hidden"
+        } bg-[#222] anim_menu overflow-y-scroll div_scroll`}
+      >
+        <div className="w-full flex justify-end p-3">
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="text-4xl m-3 cursor-pointer text-[#f1f1f1]"
+            onClick={() => setMenuFilter(false)}
+          />
+        </div>
+        <div className="w-full text-center">
+          <h3 className="text-[#db2777] text-4xl font-bold">Filters</h3>
+        </div>
+        <div className="w-full">
+          <Filters
+            onColorChange={handleColorChange}
+            onSizeChange={handleSizeChange}
+            reset={reset}
+            onPriceChangeMin={handleMinPriceChange}
+            onPriceChangeMax={handleMaxPriceChange}
+            handleFilterButtonClick={handleFilterButtonClick}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+          />
+        </div>
+      </div>
       <div className="hidden sm:flex justify-center items-center p-5 m-5">
         <h1 className="text-[#db2777] text-2xl font-serif cursor-pointer">
           Lingerie Shop
@@ -41,6 +96,7 @@ function Header() {
           <FontAwesomeIcon
             icon={faBars}
             className="w-[40px] h-[40px] text-[#f1f1f1]"
+            onClick={() => setMenuFilter(true)}
           />
         </button>
       </div>
@@ -89,13 +145,15 @@ function Header() {
       <div
         className={`${
           toggleCart ? "flex" : "hidden"
-        } absolute sm:top-20 sm:right-20 sm:mx-4 sm:my-2 p-3 sm:w-[600px] sm:h-[800px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen`}
+        } absolute sm:top-20 sm:right-20 sm:mx-4 sm:my-2 p-3 sm:w-[600px] sm:h-[750px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen ${
+          screenWidth < 640 ? "anim_menu" : ""
+        }`}
       >
         <div className="w-full h-full flex flex-col items-center">
           <div className="w-full flex justify-end">
             <FontAwesomeIcon
               icon={faXmark}
-              className="text-4xl m-3"
+              className="text-4xl m-3 cursor-pointer"
               onClick={() => settoggleCart(false)}
             />
           </div>
@@ -153,7 +211,9 @@ function Header() {
       <div
         className={`${
           toggleFav ? "flex" : "hidden"
-        } absolute sm:top-20 sm:right-0 sm:mx-4 sm:my-2 sm:w-[600px] sm:h-[800px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen`}
+        } absolute sm:top-20 sm:right-0 sm:mx-4 sm:my-2 sm:w-[600px] sm:h-[750px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen ${
+          screenWidth < 640 ? "anim_menu" : ""
+        }`}
       >
         <div className="flex flex-col px-3 w-full py-4">
           <div className="w-full flex justify-end">

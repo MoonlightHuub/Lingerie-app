@@ -1,66 +1,44 @@
 import Products from "./Products"
 import Filters from "./Filters"
-import { useState } from "react";
 import { products } from "../data/products";
+import { useContext, useState, useEffect } from "react";
+import { GlobalContext } from "./context/Context";
 
 function Content() {
 
-  const [selectedColor, setSelectedColor] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(Infinity);
-
-  {/* Size */}
-
-  function handleSizeChange(size){
-    setSelectedSize(size)
-  }
-
-  {/* Color */}
-
-  function handleColorChange(color) {
-    setSelectedColor(color)
-  }
-
-  {/* Range Price */}
-
-  function handleMinPriceChange(event) {
-    setMinPrice(event.target.value)
-  }
+  const {handleColorChange, handleFilterButtonClick, handleMaxPriceChange, handleMinPriceChange, handleSizeChange, reset, minPrice, maxPrice, selectedColor, selectedSize, selectedRange, post, handleClickPost, setPost} = useContext(GlobalContext)
   
-  function handleMaxPriceChange(event) {
-    setMaxPrice(event.target.value)
-  }
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  function handleFilterButtonClick() {
-    filterByPriceRange(minPrice, maxPrice)
-  }
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
 
-  const selectedRange = {
-    minPrice, maxPrice
-  } 
+    window.addEventListener("resize", handleResize);
 
-  {/* Reset List Whitout filter */}
-
-  function reset(){
-    setSelectedColor('')
-    setSelectedSize('')
-    setMaxPrice(Infinity)
-    setMinPrice(0)
-  }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
+
     <section className="flex sm:flex-row flex-col">
-        <Filters 
-          onColorChange={handleColorChange} 
-          onSizeChange={handleSizeChange} 
-          reset={reset} 
-          onPriceChangeMin={handleMinPriceChange}
-          onPriceChangeMax={handleMaxPriceChange}
-          handleFilterButtonClick={handleFilterButtonClick}
-          minPrice={minPrice}
-          maxPrice={maxPrice}
-        />
+        <div
+          className={`${screenWidth < 640 ? 'hidden' : 'flex'}`}
+        >
+          <Filters 
+            onColorChange={handleColorChange} 
+            onSizeChange={handleSizeChange} 
+            reset={reset} 
+            onPriceChangeMin={handleMinPriceChange}
+            onPriceChangeMax={handleMaxPriceChange}
+            handleFilterButtonClick={handleFilterButtonClick}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+          />
+        </div>
         <Products 
           products={products} 
           selectedColor={selectedColor} 
@@ -68,6 +46,9 @@ function Content() {
           selectedRange={selectedRange}
           minPrice={minPrice}
           maxPrice={maxPrice}
+          handleClickPost={handleClickPost}
+          post={post}
+          setPost={setPost}
         />
     </section>
   )
