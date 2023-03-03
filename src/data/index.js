@@ -10,14 +10,17 @@ export const navBar = [
   {
     id: 0,
     link: "Home",
+    to:"#"
   },
   {
     id: 1,
     link: "Products",
+    to: '#products'
   },
   {
     id: 2,
     link: "About Us",
+    to: "#about-us"
   },
 ];
 

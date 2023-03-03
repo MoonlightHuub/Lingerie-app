@@ -108,9 +108,9 @@ function Header() {
             key={short.id}
             className={`${
               index !== navBar.length - 1 ? "mr-5" : "mr-0"
-            } text-[#f1f1f1] text-[20px] font-semibold hover:text-pink-600 transition-[.2s]`}
+            } text-[#f1f1f1] cursor-pointer text-[20px] font-semibold hover:text-pink-600 transition-[.2s]`}
           >
-            <a href="#">{short.link}</a>
+            <a href={short.to}>{short.link}</a>
           </li>
         ))}
       </ul>
@@ -152,16 +152,16 @@ function Header() {
         }`}
       >
         <div className="w-full h-full flex flex-col items-center">
-          <div className="w-full flex justify-end">
+          <div className="w-full flex justify-between">
+            <h3 className="text-2xl text-[#db2777] font-bold p-2">
+              Your Cart
+            </h3>
             <FontAwesomeIcon
               icon={faXmark}
               className="text-4xl m-3 cursor-pointer"
               onClick={() => settoggleCart(false)}
             />
           </div>
-          <h3 className="text-2xl text-[#db2777] font-bold p-3">
-            Your Cart
-          </h3>
           {cart.map((p, i) => (
             <div
               key={p.id}
@@ -175,12 +175,14 @@ function Header() {
                       alt="pro"
                       className="h-[10em] sm:w-[60px] sm:h-[60px] mr-5 rounded-[10px]"
                     />
-                    <h3>
+                    <h3
+                      className="font-sans font-semibold text-[1.1em]"
+                    >
                       {p.title} {p.id}
                     </h3>
                   </div>
                   <div className="m-3">
-                    <p className="font-semibold text-2xl">$ {p.price}</p>
+                    <p className="font-semibold text-2xl">${p.price}</p>
                   </div>
                 </div>
               </div>
@@ -228,17 +230,15 @@ function Header() {
         }`}
       >
         <div className="flex flex-col px-3 w-full py-4">
-          <div className="w-full flex justify-end">
+          <div className="w-full flex justify-between">
+            <h3 className="text-2xl text-[#db2777] font-bold p-3">
+              Your Favourites
+            </h3>
             <FontAwesomeIcon
               icon={faXmark}
               className="text-4xl m-3 cursor-pointer"
               onClick={() => setToggleFav(false)}
             />
-          </div>
-          <div className="w-full text-center">
-            <h3 className="text-2xl text-[#db2777] font-bold p-3">
-              Your Favourites
-            </h3>
           </div>
           {fav.map((p, i) => (
             <div key={i} className='flex flex-col sm:flex-row justify-center bg-[#333] m-3 rounded-[15px]'>

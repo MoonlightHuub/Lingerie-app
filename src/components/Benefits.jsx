@@ -3,7 +3,7 @@ import { benefits } from "../data";
 
 function Benefits() {
   return (
-    <section className="flex flex-wrap justify-evenly p-10 w-[100vw] sm:justify-evenly max-w-screen-md sm:max-w-full sm:w-full mt-[2em]">
+    <section className="flex flex-wrap justify-evenly p-10 w-[100vw] sm:justify-evenly max-w-screen-md sm:max-w-full sm:w-full mt-[4em] mb-[4em]">
       {benefits.map((benefit) => (
         <div
           key={benefit.id}

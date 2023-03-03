@@ -6,6 +6,7 @@ import Button from './Button'
 import Benefits from './Benefits'
 import Content from './Content'
 import Footer from './Footer'
+import AboutUs from './AboutUs'
 
 export{
     Header, 
@@ -15,5 +16,6 @@ export{
     Button,
     Benefits,
     Content,
-    Footer
+    Footer,
+    AboutUs
 }

@@ -9,13 +9,10 @@ function Footer() {
         </p>
       </div>
       <div className="flex flex-row m-3 opacity-50">
-        <a href="" className="m-3" title="GitHub">
+        <a href="https://github.com/MoonlightHuub" target='_blank' className="m-3" title="GitHub">
           <img src={github} alt="GitHub" className="w-[32px] h-[32px]" />
         </a>
-        <a href="" className="m-3" title="GlassDoor">
-          <img src={glassdoor} alt="GlassDoor" className="w-[32px] h-[32px]" />
-        </a>
-        <a href="" className="m-3" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/rodrigo-dominguez-92645a249/" target='_blank' className="m-3" title="LinkedIn">
           <img src={linkedin} alt="LinkedIn" className="w-[32px] h-[32px]" />
         </a>
       </div>

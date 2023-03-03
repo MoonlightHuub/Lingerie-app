@@ -24,7 +24,7 @@ function Content() {
 
   return (
 
-    <section className="flex sm:flex-row flex-col">
+    <section className="flex sm:flex-row flex-col" id="products">
         <div
           className={`${screenWidth < 640 ? 'hidden' : 'flex'}`}
         >

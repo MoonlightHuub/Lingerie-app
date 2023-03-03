@@ -3,7 +3,7 @@ import Buy from "./buy";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import '../index.css'
+import "../index.css";
 
 function Products({
   products,
@@ -59,12 +59,12 @@ function Products({
   const handleSelectPost = (products) => {
     handleClickPost(products);
     settoggle(true);
-  }
+  };
 
   const closePost = () => {
     settoggle(false);
     setPost([]);
-  }
+  };
 
   return (
     <section className="text-center sm:w-full max-w-screen-sm sm:max-w-full">
@@ -76,10 +76,7 @@ function Products({
         onClick={() => closePost()}
       >
         {post.map((p, i) => (
-          <div
-            key={i}
-            className='h-full'
-          >
+          <div key={i} className="h-full">
             <div className="w-full flex justify-end p-5">
               <FontAwesomeIcon
                 icon={faXmark}
@@ -87,30 +84,34 @@ function Products({
                 className="text-4xl text-[#f1f1f1] bg-[#121212] bg-opacity-90 div_shadow"
               />
             </div>
-            <div
-              className=" w-full h-full flex items-center justify-center"
-            >
+            <div className=" w-full h-full flex items-center justify-center">
               <div
-                className="bg-[#222] post_anim w-[20em] h-[25em] p-5 mb-[10em] flex flex-col items-center rounded-[15px] div_shadow"
+                className="bg-[#222] post_anim w-[20em] h-[30em] p-5 mb-[10em] flex flex-col items-center rounded-[15px] div_shadow"
                 onClick={(e) => e.stopPropagation()}
               >
-                <img src={p.img} alt="Post" className="w-[15em] h-[15em] rounded-[20px]" />
-                <h3
-                  className="text-[#f1f1f1] m-3 text-2xl font-semibold"
-                >
+                <img
+                  src={p.img}
+                  alt="Post"
+                  className="w-[15em] h-[15em] rounded-[20px]"
+                />
+                <h3 className="text-[#f1f1f1] m-3 text-2xl font-semibold">
                   {p.title} {p.id}
                 </h3>
-                <div 
-                  className="absolute top-0 right-0 w-[120px] bg-[#121212] bg-opacity-90 m-3 p-2 rounded-[50px]"
-                >
-                  <Addto product={p}/>
+                <div className="w-full flex justify-center">
+                  {p.size.map((s, i) => (
+                    <div
+                      className="flex w-[40px] h-[40px] border-2 border-solid border-pink-600 items-center justify-center bg-[#121212] bg-opacity-50 m-3"
+                      key={i}
+                    >
+                      <p className="text-[#f1f1f1] font-bold">{s}</p>
+                    </div>
+                  ))}
                 </div>
-                <div
-                  className="flex flex-row justify-between w-full m-3 items-center"
-                >
-                  <p
-                    className="text-[#f1f1f1] font-semibold text-2xl"
-                  >
+                <div className="absolute top-0 right-0 w-[120px] bg-[#121212] bg-opacity-90 m-3 p-2 rounded-[50px]">
+                  <Addto product={p} />
+                </div>
+                <div className="flex flex-row justify-between w-full m-3 items-center">
+                  <p className="text-[#f1f1f1] font-semibold text-2xl">
                     $ {p.price}
                   </p>
                   <Buy />
@@ -132,7 +133,7 @@ function Products({
             <div className="relative w-full h-full" key={i}>
               <img
                 src={p.img}
-                alt="Produc"
+                alt="Product"
                 className="hidden sm:flex w-[5em] h-[5em] sm:w-[250px] sm:h-[250px] mx-auto shadow-lg rounded-lg"
               />
               <div
@@ -145,7 +146,7 @@ function Products({
               {/* ----------------- Mobile Onclick ------------*/}
               <img
                 src={p.img}
-                alt="Produc"
+                alt="Product"
                 className="sm:hidden w-[5em] h-[5em] sm:w-[250px] sm:h-[250px] mx-auto shadow-lg rounded-lg"
                 onClick={() => handleSelectPost(p)}
               />
