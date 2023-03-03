@@ -11,6 +11,8 @@ export function ContextProvider(props) {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
   const [post, setPost] = useState([]);
+  const [minPriceFilter, setminPriceFilter] = useState('')
+  const [maxPriceFilter, setmaxPriceFilter] = useState('')
 
   {
     /* Add to Logic */
@@ -96,15 +98,16 @@ export function ContextProvider(props) {
   }
 
   function handleMinPriceChange(event) {
-    setMinPrice(event.target.value);
+    setminPriceFilter(event.target.value);
   }
 
   function handleMaxPriceChange(event) {
-    setMaxPrice(event.target.value);
+    setmaxPriceFilter(event.target.value);
   }
 
   function handleFilterButtonClick() {
-    filterByPriceRange(minPrice, maxPrice);
+    setMaxPrice(maxPriceFilter)
+    setMinPrice(minPriceFilter)
   }
 
   const selectedRange = {
@@ -121,6 +124,8 @@ export function ContextProvider(props) {
     setSelectedSize("");
     setMaxPrice(Infinity);
     setMinPrice(0);
+    setmaxPriceFilter('')
+    setminPriceFilter('')
   }
 
   return (
@@ -140,6 +145,8 @@ export function ContextProvider(props) {
         reset,
         minPrice,
         maxPrice,
+        minPriceFilter,
+        maxPriceFilter,
         selectedColor,
         selectedSize,
         selectedRange,

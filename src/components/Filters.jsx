@@ -6,8 +6,9 @@ function Filters({
   onPriceChangeMax,
   onPriceChangeMin,
   reset,
-  minPrice,
-  maxPrice,
+  minPriceFilter,
+  maxPriceFilter,
+  handleFilterButtonClick
 }) {
   return (
     <section className="flex flex-col w-full sm:max-w-[250px] sm:bg-[#121212] sm:border-solid sm:border-r-[2.5px] sm:border-pink-600 items-center">
@@ -25,13 +26,13 @@ function Filters({
 
       {/* Price */}
 
-      <div className="p-5 mb-20 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px]">
+      <div className="p-5 mb-20 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px] sm:border-none">
         <h3 className="font-bold text-2xl text-pink-600 p-2">Price</h3>
         <div className="m-2">
           <input
             type="number"
             onChange={onPriceChangeMin}
-            value={minPrice}
+            value={minPriceFilter}
             placeholder="$ Min"
             className="rounded-[10px] p-[2.5px] text-[#f1f1f1] bg-[#121212] border-neutral-700 border-solid border-[3px] focus:border-pink-600 focus:outline-none appearance-none focus:appearance-none"
           />
@@ -41,16 +42,26 @@ function Filters({
           <input
             type="number"
             onChange={onPriceChangeMax}
-            value={maxPrice}
+            value={maxPriceFilter}
             placeholder="$ Max"
             className="rounded-[10px] p-[2.5px] text-[#f1f1f1] bg-[#121212] border-neutral-700 border-solid border-[3px] focus:border-pink-600 focus:outline-none appearance-none focus:appearance-none"
           />
+        </div>
+        <div
+          className="w-full flex justify-center"
+        >
+          <button
+            className="text-[#f1f1f1] w-[5em] h-[2.5em] m-3 rounded-[20px] border-solid border-[2.5px] border-[#db2777]"
+            onClick={handleFilterButtonClick}
+          >
+            filter
+          </button>
         </div>
       </div>
 
       {/* Colors */}
 
-      <div className="w-[250px] mb-20 p-5 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px]">
+      <div className="w-[250px] mb-20 p-5 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px] sm:border-none">
         <h3 className="font-bold text-2xl text-pink-600 p-2">Colors</h3>
         <ul className="grid grid-cols-3 justify-around p-2">
           {colorfilter.map((cf) => (
@@ -67,7 +78,7 @@ function Filters({
 
       {/* Sizes */}
 
-      <div className="p-5 mb-20 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px]">
+      <div className="p-5 mb-20 bg-[#121212] border-solid border-[2.5px] border-[#333] rounded-[10px] sm:border-none">
         <h3 className="font-bold text-2xl text-pink-600 p-2">Sizes</h3>
         <ul className="grid grid-cols-3 place-items-center">
           {sizefillter.map((sf) => (

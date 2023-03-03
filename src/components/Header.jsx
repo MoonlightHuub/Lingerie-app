@@ -39,7 +39,9 @@ function Header() {
     handlePrice();
   });
 
-  {/* Size Indicator */}
+  {
+    /* Size Indicator */
+  }
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -146,7 +148,7 @@ function Header() {
         className={`${
           toggleCart ? "flex" : "hidden"
         } absolute sm:top-20 sm:right-20 sm:mx-4 sm:my-2 p-3 sm:w-[600px] sm:h-[750px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen ${
-          screenWidth < 640 ? "anim_menu" : ""
+          screenWidth < 640 ? "anim_menu_reverse" : ""
         }`}
       >
         <div className="w-full h-full flex flex-col items-center">
@@ -157,41 +159,51 @@ function Header() {
               onClick={() => settoggleCart(false)}
             />
           </div>
-          <h3 className="text-2xl text-[#db2777] font-bold p-3">Your Cart</h3>
+          <h3 className="text-2xl text-[#db2777] font-bold p-3">
+            Your Cart
+          </h3>
           {cart.map((p, i) => (
             <div
               key={p.id}
-              className="w-[90%] flex flex-row m-2 p-3 bg-[#333] justify-evenly items-center rounded-[15px]"
+              className="w-[90%] flex flex-col sm:flex-row m-2 p-3 bg-[#333] justify-evenly items-center rounded-[15px]"
             >
-              <div key={i} className="flex flex-row mr-3 justify-between">
-                <img
-                  src={p.img}
-                  alt="pro"
-                  className="w-[60px] h-[60px] mr-5 rounded-[10px]"
-                />
-                <h3>
-                  {p.title} {p.id}
-                </h3>
+              <div key={i} className="w-full">
+                <div className="flex flex-col sm:flex-row justify-between items-center">
+                  <div className="flex flex-row mr-3 justify-between items-center">
+                    <img
+                      src={p.img}
+                      alt="pro"
+                      className="h-[10em] sm:w-[60px] sm:h-[60px] mr-5 rounded-[10px]"
+                    />
+                    <h3>
+                      {p.title} {p.id}
+                    </h3>
+                  </div>
+                  <div className="m-3">
+                    <p className="font-semibold text-2xl">$ {p.price}</p>
+                  </div>
+                </div>
               </div>
-              <div className="">
-                <p>$ {p.price}</p>
-              </div>
-              <div className="ml-3 flex flex-row items-center bg-opacity-50 bg-[#121212] rounded-[10px] p-3 h-[40px]">
-                <button onClick={() => handleChange(p, -1)}>
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <p className="p-3 text-[18px] font-semibold">{p.amount}</p>
-                <button onClick={() => handleChange(p, 1)}>
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
-              </div>
-              <div className="flex items-center">
-                <button
-                  onClick={() => handleRemoveCart(p.id)}
-                  className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s]"
-                >
-                  Remove
-                </button>
+
+              <div className="flex flex-row w-full justify-between sm:justify-around">
+                <div className="ml-3 flex flex-row items-center bg-opacity-50 bg-[#121212] rounded-[10px] p-3 h-[40px]">
+                  <button onClick={() => handleChange(p, -1)}>
+                    <FontAwesomeIcon icon={faMinus} />
+                  </button>
+                  <p className="p-3 text-[18px] font-semibold">{p.amount}</p>
+                  <button onClick={() => handleChange(p, 1)}>
+                    <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                </div>
+
+                <div className="flex items-center">
+                  <button
+                    onClick={() => handleRemoveCart(p.id)}
+                    className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s]"
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -212,7 +224,7 @@ function Header() {
         className={`${
           toggleFav ? "flex" : "hidden"
         } absolute sm:top-20 sm:right-0 sm:mx-4 sm:my-2 sm:w-[600px] sm:h-[750px] bg-[#222] text-[#f1f1f1] transition-[.2s] sm:rounded-lg div_shadow overflow-y-scroll div_scroll h-screen w-screen ${
-          screenWidth < 640 ? "anim_menu" : ""
+          screenWidth < 640 ? "anim_menu_reverse" : ""
         }`}
       >
         <div className="flex flex-col px-3 w-full py-4">
@@ -224,30 +236,29 @@ function Header() {
             />
           </div>
           <div className="w-full text-center">
-            <h3 className="text-2xl text-[#db2777] font-bold">
+            <h3 className="text-2xl text-[#db2777] font-bold p-3">
               Your Favourites
             </h3>
           </div>
           {fav.map((p, i) => (
-            <div
-              key={i}
-              className="flex flex-row justify-between items-center w-full m-3 bg-[#333] p-3 rounded-[15px] transition-[.2s]"
-            >
-              <div>
-                <img
-                  src={p.img}
-                  alt="product"
-                  className="w-[60px] h-[60px] rounded-[10px]"
-                />
+            <div key={i} className='flex flex-col sm:flex-row justify-center bg-[#333] m-3 rounded-[15px]'>
+              <div className="flex flex-row justify-evenly sm:justify-between items-center w-full m-3 p-3 transition-[.2s]">
+                <div>
+                  <img
+                    src={p.img}
+                    alt="product"
+                    className="h-[10em] sm:h-[5em] sm:w-[5em] rounded-[10px]"
+                  />
+                </div>
+                <div className="m-3 font-semibold text-2xl">
+                  <h3>
+                    {p.title} {p.id}
+                  </h3>
+                </div>
               </div>
-              <div className="m-3">
-                <h3>
-                  {p.title} {p.id}
-                </h3>
-              </div>
-              <div>
+              <div className=" flex justify-center sm:items-center p-4">
                 <button
-                  className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s]"
+                  className="cursor-pointer bg-[#DC0000] p-2 rounded-[50px] font-semibold active:scale-[0.9] transition-[.2s] h-[3em]"
                   onClick={() => handleRemoveFav(p.id)}
                 >
                   Remove

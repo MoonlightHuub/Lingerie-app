@@ -6,7 +6,7 @@ import { GlobalContext } from "./context/Context";
 
 function Content() {
 
-  const {handleColorChange, handleFilterButtonClick, handleMaxPriceChange, handleMinPriceChange, handleSizeChange, reset, minPrice, maxPrice, selectedColor, selectedSize, selectedRange, post, handleClickPost, setPost} = useContext(GlobalContext)
+  const {handleColorChange, handleFilterButtonClick, handleMaxPriceChange, handleMinPriceChange, handleSizeChange, reset, minPrice, maxPrice, minPriceFilter, maxPriceFilter, selectedColor, selectedSize, selectedRange, post, handleClickPost, setPost} = useContext(GlobalContext)
   
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -37,6 +37,8 @@ function Content() {
             handleFilterButtonClick={handleFilterButtonClick}
             minPrice={minPrice}
             maxPrice={maxPrice}
+            maxPriceFilter={maxPriceFilter}
+            minPriceFilter={minPriceFilter}
           />
         </div>
         <Products 
